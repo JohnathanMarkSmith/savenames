@@ -18,16 +18,15 @@ import java.util.Map;
 import static org.apache.log4j.Logger.getLogger;
 
 
-
 @Controller
-@RequestMapping("/list")
-public class RequestController
+@RequestMapping("/add")
+public class AddController
 {
 
     @Autowired
     protected MessageService mService;
 
-    private static final Logger LOGGER = getLogger(RequestController.class);
+    private static final Logger LOGGER = getLogger(AddController.class);
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView displayRequestPage(HttpSession session)
