@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,30 +25,27 @@ import static org.apache.log4j.Logger.getLogger;
  * <p/>
  * Comments:
  * <p/>
- * This control is used to display the add screen and then add the record to the database and show a list.
+ * this controller is used to display the search screen and to do the search on the database and return the list.
  */
 
 
 @Controller
-@RequestMapping("/add")
-public class AddController
+@RequestMapping("/search")
+public class SearchController
 {
 
     @Autowired
     protected MessageService mService;
 
-    private static final Logger LOGGER = getLogger(AddController.class);
+    private static final Logger LOGGER = getLogger(SearchController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView displayRequestPage(HttpSession session)
+    public ModelAndView displayRequestPage()
     {
         Map<String, Object> model = new HashMap<String, Object>();
 
-        List<Message> myList = mService.listMessages();
-
-        model.put("names", myList);
         model.put("message", new Message());
-        return new ModelAndView("add", model);
+        return new ModelAndView("search", model);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -57,11 +53,9 @@ public class AddController
     {
         Map<String, Object> model = new HashMap<String, Object>();
 
-        mService.SaveMessage(message);
-
-        List<Message> myList = mService.listMessages();
+        List<Message> myList = mService.searchMessages(message.getMessage());
         model.put("names", myList);
-        return new ModelAndView("add", model);
+        return new ModelAndView("search", model);
     }
 
 

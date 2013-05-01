@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -47,6 +48,24 @@ public class MessageDaoImpl implements MessageDao
         {
             return (List<Message>) sessionFactory.getCurrentSession()
                     .createCriteria(Message.class).list();
+
+        } catch (Exception e)
+        {
+            log.fatal(e.getMessage());
+            return null;
+        }
+    }
+
+
+    @SuppressWarnings("unchecked")
+    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
+    public List<Message> searchMessages(String searchString)
+    {
+        try
+        {
+            return (List<Message>) sessionFactory.getCurrentSession()
+                    .createCriteria(Message.class)
+                    .add(Restrictions.like("message", "%" + searchString + "%")).list();
 
         } catch (Exception e)
         {

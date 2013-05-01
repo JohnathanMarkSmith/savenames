@@ -27,6 +27,16 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import java.util.Locale;
 import java.util.Properties;
 
+/**
+ * Date:   5/1/13 / 7:58 AM
+ * Author: Johnathan Mark Smith
+ * Email:  john@johnathanmarksmith.com
+ * <p/>
+ * Comments:
+ * <p/>
+ * This is just a example on how to use JavaConfig to make your MVCConfig
+ */
+
 
 @Configuration
 @EnableWebMvc

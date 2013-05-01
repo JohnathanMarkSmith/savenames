@@ -19,5 +19,8 @@ public interface MessageService
 {
     public List<Message> listMessages();
 
+    public List<Message> searchMessages(String searchString);
+
+
     public void SaveMessage(Message message);
 }

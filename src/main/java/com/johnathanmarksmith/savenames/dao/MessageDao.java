@@ -19,6 +19,8 @@ public interface MessageDao
 {
     public List<Message> listMessages();
 
+    public List<Message> searchMessages(String searchString);
+
     public void SaveOrUpdateMessage(Message message);
 
 }

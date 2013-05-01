@@ -36,9 +36,15 @@ public class MessageServiceImpl implements MessageService
 
     }
 
+
     public List<Message> listMessages()
     {
         return messageDao.listMessages();
+    }
+
+    public List<Message> searchMessages(String searchString)
+    {
+        return messageDao.searchMessages(searchString);
     }
 
     public void SaveMessage(Message message)

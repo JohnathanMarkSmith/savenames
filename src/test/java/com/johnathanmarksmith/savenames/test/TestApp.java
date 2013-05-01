@@ -1,8 +1,8 @@
-package com.johnathanmarksmith.noMySQL.test;
+package com.johnathanmarksmith.savenames.test;
 
-import com.johnathanmarksmith.noMySQL.DatabaseConfiguration;
-import com.johnathanmarksmith.noMySQL.model.Message;
-import com.johnathanmarksmith.noMySQL.service.MessageService;
+import com.johnathanmarksmith.savenames.DatabaseConfiguration;
+import com.johnathanmarksmith.savenames.model.Message;
+import com.johnathanmarksmith.savenames.service.MessageService;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
