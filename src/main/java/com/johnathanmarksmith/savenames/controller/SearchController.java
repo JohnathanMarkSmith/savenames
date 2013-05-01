@@ -49,11 +49,12 @@ public class SearchController
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView displayRequestPage(@ModelAttribute("message") Message message, BindingResult result)
+    public ModelAndView displaySearchRequestPage(@ModelAttribute("message") Message message)
     {
         Map<String, Object> model = new HashMap<String, Object>();
 
         List<Message> myList = mService.searchMessages(message.getMessage());
+
         model.put("names", myList);
         return new ModelAndView("search", model);
     }

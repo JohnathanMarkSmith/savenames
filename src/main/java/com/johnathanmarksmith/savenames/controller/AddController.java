@@ -53,7 +53,7 @@ public class AddController
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView displayRequestPage(@ModelAttribute("message") Message message, BindingResult result)
+    public ModelAndView displayAddRequestPage(@ModelAttribute("message") Message message)
     {
         Map<String, Object> model = new HashMap<String, Object>();
 
